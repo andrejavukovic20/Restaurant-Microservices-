@@ -1,0 +1,12 @@
+package menu;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MenuItemRepository  extends JpaRepository<MenuItem, Long>{
+
+	List<MenuItem> findByCategory(Category category);
+	List<MenuItem> findByAvailableTrue();
+	List<MenuItem> findByIdInAndAvailableTrue(List<Long> ids);
+}
